@@ -6,6 +6,7 @@ namespace Cas19
     {
         static void Main(string[] args)
         {
+            // Start the loops
             int cntr = 1;
             int a = 0;
             while (cntr > 0)
