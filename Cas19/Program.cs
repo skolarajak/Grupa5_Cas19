@@ -6,54 +6,53 @@ namespace Cas19
     {
         static void Main(string[] args)
         {
-            // Start the loops
-            int cntr = 1;
-            int a = 0;
-            while (cntr > 0)
-            {
-                Console.Write("Unesi vrednost, za kraj, unesi vrednost manju od 1 >");
-                cntr = Convert.ToInt32(Console.ReadLine());
-                Console.WriteLine("Value of cntr: {0}", cntr);
-                if (a > 10)
-                {
-                    break;
-                }
-                a++;
-            }
+            Program instanca = new Program();
 
-            for (int c = 1; c <= 20; c = c + 2)
-            {
-                Console.WriteLine("Value of c: {0}", c);
-            }
-            int c = 1;
+            string oper;
+
             do
             {
-                Console.WriteLine("do-while: Value of c: {0}", c);
-            } while (c < 0);
-
-            while (c < 0)
-            {
-                Console.WriteLine("while: Value of c: {0}", c);
-            }
-            for (int a = 1; a <= 10; a++)
-            {
-                Console.Write("{0}: ", a);
-                for (int b = 1; b <= 5; b++)
+                Console.Write("Unesi prvi broj > ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Unesi drugi broj > ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+                Console.Write("Unesi zeljenu operaciju (+, -, *, /, ostavi prazno za zavrsetak) >");
+                oper = Console.ReadLine();
+                if (oper != "")
                 {
-                    Console.Write("{0} ", b);
+                    int rezultat = instanca.Digitron(num1, num2, oper);
+                    Console.WriteLine("Rezultat {0} {1} {2} = {3} ", num1, oper, num2, rezultat);
                 }
-                Console.WriteLine();
-            }
 
-            int zbir = 0;
-            for (int a = 1; a <= 10; a++)
-            {
-                zbir = zbir + a;
-            }
-            Console.WriteLine("Zbir brojeva od 1 do 10 je: " + zbir);
-            
+            } while (oper != "");
 
             Console.ReadKey();
         }
+
+
+        public int Digitron(int a, int b, string operacija)
+        {
+            int rezultat = 0;
+            if (operacija == "+")
+            {
+                rezultat = a + b;
+            }
+            else if (operacija == "-")
+            {
+                rezultat = a - b;
+            }
+            else if (operacija == "/")
+            {
+                rezultat = a / b;
+            }
+            else if (operacija == "*")
+            {
+                rezultat = a * b;
+            }
+            return rezultat;
+
+        }
+
+
     }
 }
